@@ -1,0 +1,41 @@
+/*const Discord = require ('discord.js')
+const { MessageEmbed, MessageButton } = require("discord.js")
+module.exports = {
+	name: `guildMemberAdd`,
+	async run(client, member) {  
+
+    const embed = new Discord.MessageEmbed()
+    .setAuthor({name: "Welcome", iconURL: client.user.displayAvatarURL({dynamic: true})})
+    .setColor("e60ad4")
+    .setDescription(`**₊˚✿¡¡ Bienvenid@ a ✦ CLUB ATTICUS ✦ <@${member.user.id}> !!✿˚₊**\n > ╭・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╮\n > ๑ ₊˚ ⿻ ୨ **Visita** ✦ ໒☄️꒱ ｡˚ ୧ᵎᵎ ๑ ꒷‧ ╴ ╴ ╴\n > ₊꒷ꕤ໒🍣꒱╰╮ <#996295481720320131>\n > ₊꒷ꕤ໒🍣꒱╭╯ <#996287502266663023>\n > ₊꒷ꕤ໒🍣꒱╭╯ <#996308137076330607>\n > ₊꒷ꕤ໒🍣꒱╰╮ <#996297524245704815>\n > ╰・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╯\n\n > ╭・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╮\n > ๑ ₊˚ ⿻ ୨ **Poseemos** ✦ ໒☄️꒱ ｡˚ ୧ᵎᵎ ๑ ꒷‧ ╴ ╴\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Alianzas & Affys୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨Decoración୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Organización୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨Entretenimiento୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Porno & Hentai୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨+200 Canales Nsfw୧ᵎᵎ ꒷₊\n > ╰・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╯`) 
+    .setImage('https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg')
+    .setFooter({text: `Gracias por preferirnos Usuario: #${member.guild.memberCount}`, iconURL: ""})
+    .setTimestamp()
+    client.channels.cache.get("").send({embeds: [embed] }).then(m =>{
+        m.react("<:coolgirl:1016176429693677618>")
+    })
+   
+
+const embed1 = new Discord.MessageEmbed()
+.setAuthor({name: `CLUB ATTICUS`, iconURL: client.user.displayAvatarURL({ dynamic: true })})
+.setDescription(`**Thank you for entering our server!** <a:us:1069691928473522287>\n ・ My default prefix is **\`club\`**\n ・ You can use the command \`club help\` to get my list of commands\n\`\`\` ・ Our community offers entertainment and much more. Feel free to stay!\`\`\``)
+.setColor("e60ad4")
+
+const embed2 = new Discord.MessageEmbed()
+.setAuthor({name: `CLUB ATTICUS`, iconURL: client.user.displayAvatarURL({ dynamic: true })})
+.setDescription(`**¡Gracias por ingresar a nuestro servidor!** <a:es:1069691926334423081>\n ・ Mi prefijo predeterminado es **\`club\`**\n ・ Puede usar el comando \`club help\` para obtener mi lista de comandos\n\`\`\` ・ Nuestra comunidad ofrece entretenimiento y mucho más. ¡Siéntete libre de quedarte!\`\`\``)
+.setColor("e60ad4")
+
+
+member.send({ embeds: [embed1, embed2], components: [new Discord.MessageActionRow().addComponents(
+    [
+        new Discord.MessageButton().setStyle(`LINK`).setLabel(`WebSite`).setURL("https://docs.clubatticus.ml/").setEmoji("<:favorite:1080527572787548260>"),
+    ],
+    [
+        new Discord.MessageButton().setStyle('LINK').setLabel('Server').setURL("https://discord.gg/3HkXZt8rjn").setEmoji("<:discordincon:1080527569880883210>"),
+    ]
+)]})
+
+ }
+}
+*/

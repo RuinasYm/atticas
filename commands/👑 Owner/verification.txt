@@ -1,0 +1,51 @@
+/*
+const discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton } = require('discord.js');
+
+module.exports = {
+  name: 't1',
+  alias: [''],
+  desc: 'Sirve para crear un mensaje de verificacion',
+  uso: '!t1',
+  permisos: ['ADMINISTRATOR'],
+  permisos_bot: ['ADMINISTRATOR'],
+  valoracion: '⭐⭐⭐⭐⭐',
+  async execute(client, message, args, interaction) {
+
+    if(message.author.id !== "1001880420138373191") return message.reply({
+      embeds: [new Discord.MessageEmbed()
+          .setDescription("**<:fail:1083542064924479549> |  No tienes suficientes permisos para ejecutar este Comando! | <:fail:1083542064924479549>**")
+          .setColor("e60ad4")
+      ]
+  })
+  
+    const embed = new discord.MessageEmbed()
+      .setAuthor({ name: "Verification", iconURL: client.user.displayAvatarURL({dynamic: true}) })
+      .setDescription(`**<a:pink:1069081614266675282> ➜ Female\n<a:blue:1069081611645231224> ➜ Male\n<a:purple:1069081617869578344> ➜ Lgbt**`)
+      .setColor("e60ad4")
+      .setThumbnail("https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png");
+
+    const m = await message.channel.send({ embeds: [embed], components: [new MessageActionRow().addComponents([
+        new MessageButton().setStyle('SECONDARY').setEmoji("<a:pink:1069081614266675282>").setCustomId("Female"),
+        new MessageButton().setStyle('SECONDARY').setEmoji("<a:blue:1069081611645231224>").setCustomId("Male"),
+        new MessageButton().setStyle('SECONDARY').setEmoji("<a:purple:1069081617869578344>").setCustomId("Lgbt")])] });
+
+    const collector = m.createMessageComponentCollector({});
+
+    collector.on("collect", async i => {
+      if (i.customId === "Female" && i.user.id !== client.user.id) {
+        await i.deferUpdate();
+        await i.member.roles.add("1067485928022618122");
+      };
+      if (i.customId === "Male" && i.user.id !== client.user.id) {
+        await i.deferUpdate();
+        await i.member.roles.add("1067485929129918646");
+      };
+      if (i.customId === "Lgbt" && i.user.id !== client.user.id) {
+        await i.deferUpdate();
+        await i.member.roles.add("1067485931214491648");
+      };
+    });
+  }
+};
+*/

@@ -1,0 +1,56 @@
+/*
+const Discord = require('discord.js');//definismo discord
+
+module.exports = {
+    name: "revive",//este es el nombre del comando
+    alias: ["spam"],//este es el alias del comando
+    desc: "Sirve para revivir tu el servidor",//esto es opcional, son solo obciones que se agregan a un comando help perzonalizado
+    uso: "!revive (mensaje)",//esto es opcional, son solo obciones que se agregan a un comando help perzonalizado
+    permisos: ["ADMINISTRATOR"],//esto es opcional, son solo obciones que se agregan a un comando help perzonalizado
+    permisos_bot: ["ADMINISTRATOR"],//esto es opcional, son solo obciones que se agregan a un comando help perzonalizado
+    valoracion: "⭐⭐⭐⭐⭐",//esto es opcional, son solo obciones que se agregan a un comando help perzonalizado
+    async execute(client, message, args) {
+
+    if(message.author.id !== "1001880420138373191") return message.reply({
+        embeds: [new Discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No tienes suficientes permisos para ejecutar este Comando! | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")
+        ]
+    })
+
+const escribe = args.slice(0).join(' ')
+
+if(!escribe) return message.reply({
+	embeds: [new Discord.MessageEmbed()
+		.setDescription("**<:fail:1083542064924479549> |  No especificaste un texto a decir! | <:fail:1083542064924479549>**")
+		.setColor("e60ad4")
+	]
+})
+message.delete()
+
+    await message.channel.send(`${escribe}`)//La cantidad de veces que se duplicara el mensaje
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    await message.channel.send(`${escribe}`)
+    
+  }
+}
+*/

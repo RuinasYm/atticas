@@ -1,0 +1,127 @@
+const Discord = require ('discord.js')
+
+module.exports = {
+    name: "cumshot",
+    alias: [],
+    desc: "Sirve para ver contenido nsfw",
+    uso: "!cumshot",
+    permisos: ["SEND_MESSAGES"],
+    permisos_bot: ["ADMINISTRATOR"], 
+    valoracion: "⭐⭐⭐⭐⭐",
+    async execute (client, message, args){
+
+            if (!message.channel.nsfw) return message.reply({
+      embeds: [new Discord.MessageEmbed()
+          .setDescription("**<:fail:1083542064924479549> |  Este comando solo funciona en canales Nsfw! | <:fail:1083542064924479549>**")
+          .setColor("e60ad4")
+      ]
+    })
+
+        const contenidos = ["https://cdn.discordapp.com/attachments/996532891641188473/1010286901061767188/1642416721527-2.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286901535707196/VID_20211115_164217_038.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286901984505896/video0-3-1.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286902361989242/1636419571518.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286903804833792/StridentSlategrayPaddlefish-mobile.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286904282980453/yuzune_boslo3.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286904794689747/1642380882981.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010286905214128219/401893.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287028065292288/1648140585769.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287028509868042/VID_20220514_174821_667.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287028988031018/Twitter_10.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287029478760548/r99ege2xqyi81.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287030011441173/MarvelousJaggedIberianmidwifetoad.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287030506377247/VID_20220501_005358_616.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287031106150500/VID_20220510_202558_655.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287031710138409/VID_20220506_115556_967.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287032171495505/VID_20220506_122318_413.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287032595124345/4_5952050195163253423.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287148315971686/painted_her_face_https___t.co_5BiAO5zcBn.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287148727029870/077b83a3-4429-4c92-a45d-6c66fe2cbf76.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287149242912918/VID_20220514_173655_921.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287149620404224/video_2022-05-14_08-56-40.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287150236971008/IMG_20210422_151243_521.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287150589296721/VID_20220520_232750_387.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287151067443340/trim.72EAC2D1-49CD-46AA-9FEC-96D61AFB2CA4-1-1.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287151478476831/dyfKhwy4UUA8Tkn7.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287151851774003/ConsiderateRapidGoosefish-mobile.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287152254431302/68689140-482f-46a9-8b1b-afba5fb88ce0.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287341371408464/LuxuriousAlertAldabratortoise.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287341887291592/1652481967044.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287342382223380/twitter_20211208_122000-1.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287342860382238/IndelibleEvilRaven-mobile.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287343334330438/IMG_20210730_225835_589.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287343774748743/33544671a.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287344852664420/video0.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287344273854604/1652482138181.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287345280503900/HelplessUnhappyDowitcher-mobile.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287445104918688/cim.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287447797678191/yjXtCi7.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287448326152192/cd1fa647-b2c8-4cb5-ab7f-71120d66d2c0.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287449135657050/VacantWordyNorthernelephantseal.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287449769001030/FrightenedDarkgoldenrodPeccary.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287450163249283/giM6bWZ.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287450452668506/9g56aha758891.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1010287451136348280/JovialKeyDeviltasmanian-mobile.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451603082096731/absoluteslategreyloggerheadturtle.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451603501514862/VID_20201210_220243_485.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451603828674830/1091882.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451604193583245/document_5172455842154283348.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451604520730674/VID-20200823-WA0003.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451604906610758/VID-20210322-WA0024.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451605242163341/video0-10-1.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451605695135845/04KVKWvFbS13fhHI.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033451606085226617/My_first_public_blow...Elfie_1_20221017_170631.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033452864544190474/trim.B1653A4E-65A7-4D25-938D-788529A06400.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033452865039114350/trim.4627E6FF-FB35-49C1-BD06-2483AFBDEF9A.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1033452865471139980/BJ-1.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756039607009360/CN8xT2y.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756040089346089/fkidkd.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756040588464168/BlushingPracticalLionfish-mobile.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756041007906957/2XpeEXB.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756041410551878/xvideos.com_4a96fc09873a20862babb816af13d41d-1.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756041754480650/16564237285021.webm",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756042119397478/VID_20220221_155410_827.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1036756042740142170/SmoggyProductiveHeifer.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708721832251443/1130047.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708724264931398/asdcd_HD.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708724826972180/lv_0_20221125222534.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708725250609283/trim.2E58706C-65AB-4BD4-8714-575A5D7EDA91.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708725636468806/1124954.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708726215286794/1131057.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708726735392819/1129534.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708727234498623/1129513.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708829655203971/DarkorangeSecretMealworm-mobile.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708830124986458/BlushingPracticalLionfish-mobile.mov",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708829239967794/769179.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708829697155172/1122289.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708830162714674/1128485.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708830783479889/1128567.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708831295176704/1128459.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708832100491314/1116838.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708832536707193/1073945.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708833111310367/1117592.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708833597857873/486983.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708834038251622/1082239.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708834101166170/1089759.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708834487054356/CN8xT2y.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708834898088056/1119136.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708835342680064/VID_20220910_003243_759.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708835808260116/video_2022-05-25_22-13-35.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708836252848128/1115737.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708836680675348/1075045.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708837183983756/1067692.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708837674713198/VID-20210414-WA0000-1.mp4",
+        "https://cdn.discordapp.com/attachments/996532891641188473/1052708838127710298/1076919.mp4",
+
+    ] 
+
+        let contenido = contenidos[Math.floor(Math.random() * contenidos.length)]; setTimeout(() => {
+
+    message.channel.send({ content: `\`\`\`🔞 Fluidos - Cumshot \`\`\` ${contenido}`, components: [new Discord.MessageActionRow().addComponents(
+        [
+            new Discord.MessageButton().setStyle(`LINK`).setLabel(`Descargar`).setURL(contenido),
+        ]
+        )]})}, 1000);
+}
+
+}

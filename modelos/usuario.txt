@@ -1,0 +1,12 @@
+const { Schema, model } = require('mongoose')
+
+const serverSchema = new Schema({
+    guilID: { 
+        type: String
+    },
+    premium: {type: String, default: ""}
+})
+
+
+module.exports = model("Servidor", serverSchema);
+

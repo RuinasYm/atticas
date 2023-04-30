@@ -1,0 +1,19 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "test",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setColor("e60ad4")
+    .setImage('https://cdn.discordapp.com/attachments/992918273148596234/993212848647966750/A0C892E2-EFEF-4FBF-A4EE-5A5530E411EB.gif')
+    .setDescription(`**✗ <:veri:998302154525769818> ELIJE TU GENERO ✗**\n\n『 :woman_genie: 』<@&1061810363059949649>\n\n『 :man_genie: 』<@&1061810359490592798>\n\n『 <:21:998306438298488883> 』<@&1061810315467178144>\n\n『 <:fem:998294999609381014> 』<@&1061810309007953980>\n\n『 <:13:998306448805220362> 』<@&1061810353262043156>`)
+    .setThumbnail('https://cdn.discordapp.com/icons/1050655552662941766/e6ad1af22a3ea67b634acd8aa41c14b7.png?size=1024')
+    message.channel.send({embeds: [embed] })
+  }
+}
+
+

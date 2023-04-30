@@ -1,0 +1,34 @@
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const { MessageEmbed } = require("discord.js")
+const Discord = require("discord.js")
+const db = require("quick.db");
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("leaderboard")
+        .setDescription("💸 Ve el ranking de economia"),
+
+    async run(client, interaction, args, ){
+        let money = db.all().filter(data => data.ID.startsWith(`money_`)).sort((a, b) => b.data - a.data);
+        if (!money.length) {
+            let noEmbed = new MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  Este servidor no tiene habilitada la Leaderboard! | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")
+            return interaction.reply({embeds: [noEmbed]})
+        };
+
+        money.length = 10;
+        var finalLb = "";
+        for (var i in money) {
+            if (money[i].data === null) money[i].data = 0
+            finalLb += `**${money.indexOf(money[i]) + 1}. ${interaction.member.cache.get(money[i].ID.split('_')[1]) ? interaction.member.cache.get(money[i].ID.split('_')[1]).tag : "Usuario Desconocido#0000"}** - ${money[i].data} :dollar:\n`;
+        };
+
+        const embed = new MessageEmbed()
+        .setAuthor(`Economia`, "https://cdn.discordapp.com/icons/996282321277825104/f3deb65631cd833da7879f788f95ab17.webp")
+        .setColor("e60ad4")
+        .setDescription(`__**Leaderboard \`${interaction.guild.name}\`**__\n${finalLb}`)
+        .setFooter("Gracias por Preferirnos")
+        interaction.reply({embeds: [embed]});
+    }
+};

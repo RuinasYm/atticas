@@ -1,0 +1,8 @@
+{
+    "token": "MTA0MDMxMTE2MTQ2MTE1Mzg3Mw.GWMP9y.qOTYxcSGNJbombYzEdUxZ1FN2oSq8Gze3cjuzo",
+    "clientId": "1040311161461153873",
+    "ownerIDS": ["942958351371862016"],
+    "color": "#ff0000",
+    "mongodb": "mongodb+srv://atticus:atticus123@atticus.mvvywpr.mongodb.net/?retryWrites=true&w=majority",
+    "prefix": "atticus"
+}

@@ -1,0 +1,18 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "testnoti",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setColor("e60ad4")
+    .setImage('https://cdn.discordapp.com/attachments/992918273148596234/993212848647966750/A0C892E2-EFEF-4FBF-A4EE-5A5530E411EB.gif')
+    .setDescription(`**✗ 📢 ELIJE TUS NOTIFICACIONES ✗**\n\n『 🍥 』<@&1017975986379296799>\n\n『 🎓 』<@&1017976329146212382>\n\n『 🌸 』<@&1000970923312169000>\n\n『 <:boy1:1016175637972664330> 』<@&1017976456745324554>`)
+    .setThumbnail('https://cdn.discordapp.com/avatars/1044756126350196796/d20d172af361678d811812f14154b004.png?size=1024')
+    message.channel.send({embeds: [embed] })
+  }
+}
+

@@ -1,0 +1,79 @@
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const Discord = require("discord.js")
+const { MessageEmbed } = require('discord.js')
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("calificame")
+        .setDescription("⭐ Sirve para calificarme")
+        .addStringOption((option) => {
+            return option
+                .setName("calificacion")
+                .setDescription("Escoje una calificacion")
+                .setChoices(
+                    { name: "Desaprobación → ⭐", value: "Desaprobación → ⭐" },
+                    { name: "insatisfecho → ⭐⭐", value: "insatisfecho → ⭐⭐" },
+                    { name: "Falta mejorar → ⭐⭐⭐", value: "Falta mejorar → ⭐⭐⭐" },
+                    { name: "Aceptable → ⭐⭐⭐⭐", value: "Aceptable → ⭐⭐⭐⭐" },
+                    { name: "Exelente → ⭐⭐⭐⭐⭐", value: "Exelente → ⭐⭐⭐⭐⭐" },
+
+                )
+                .setRequired(true)
+        }),
+
+    async run(client, interaction){
+
+        const canal = client.channels.cache.get
+        ('1036064554360262677')
+
+        let e = new Discord.MessageEmbed()
+
+        const calificacion = interaction.options.getString("calificacion") 
+
+        if (calificacion) 
+        if (calificacion === "Desaprobación → ⭐") { 
+
+            const embed = new MessageEmbed()
+            .setDescription(`> **Autor:** ${interaction.member} \n > **Calificacion:** \`${calificacion}\``)
+            .setAuthor({name: "Calificacion", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            
+            .setColor("e60ad4")
+            canal.send({ embeds: [embed] }) 
+            await interaction.reply({ embeds: [e.setDescription(`**<:sucess:1083547524717101056> |  Calificacion enviada correctamente! | <:sucess:1083547524717101056>**`).setColor("e60ad4")], ephemeral: true})
+        } else { }
+        if (calificacion === "insatisfecho → ⭐⭐") {  const embed = new MessageEmbed()
+            .setDescription(`> **Autor:** ${interaction.member} \n > **Calificacion:** \`${calificacion}\``)
+            .setAuthor({name: "Calificacion", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            
+            .setColor("e60ad4")
+            canal.send({ embeds: [embed] }) 
+            await interaction.reply({ embeds: [e.setDescription(`**<:sucess:1083547524717101056> |  Calificacion enviada correctamente! | <:sucess:1083547524717101056>**`).setColor("e60ad4")], ephemeral: true})
+        } else { }
+        if (calificacion === "Falta mejorar → ⭐⭐⭐") { const embed = new MessageEmbed()
+            .setDescription(`> **Autor:** ${interaction.member} \n > **Calificacion:** \`${calificacion}\``)
+            .setAuthor({name: "Calificacion", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            
+            .setColor("e60ad4")
+            canal.send({ embeds: [embed] }) 
+            await interaction.reply({ embeds: [e.setDescription(`**<:sucess:1083547524717101056> |  Calificacion enviada correctamente! | <:sucess:1083547524717101056>**`).setColor("e60ad4")], ephemeral: true})
+        } else { }
+        if (calificacion === "Aceptable → ⭐⭐⭐⭐") {  const embed = new MessageEmbed()
+            .setDescription(`> **Autor:** ${interaction.member} \n > **Calificacion:** \`${calificacion}\``)
+            .setAuthor({name: "Calificacion", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            
+            .setColor("e60ad4")
+            canal.send({ embeds: [embed] }) 
+            await interaction.reply({ embeds: [e.setDescription(`**<:sucess:1083547524717101056> |  Calificacion enviada correctamente! | <:sucess:1083547524717101056>**`).setColor("e60ad4")], ephemeral: true})
+        } else { }
+        if (calificacion === "Exelente → ⭐⭐⭐⭐⭐") {  const embed = new MessageEmbed()
+            .setDescription(`> **Autor:** ${interaction.member} \n > **Calificacion:** \`${calificacion}\``)
+            .setAuthor({name: "Calificacion", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            
+            .setColor("e60ad4")
+            canal.send({ embeds: [embed] }) 
+            await interaction.reply({ embeds: [e.setDescription(`**<:sucess:1083547524717101056> |  Calificacion enviada correctamente! | <:sucess:1083547524717101056>**`).setColor("e60ad4")], ephemeral: true})
+        } else { }
+        
+     } 
+    }
+ 

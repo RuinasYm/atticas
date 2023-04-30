@@ -1,0 +1,507 @@
+const { MessageActionRow, MessageSelectMenu} = require('discord.js')
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const { MessageEmbed } = require("discord.js")
+const Discord = require("discord.js")
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("help")
+        .setDescription("📙 Mira mis comandos"),
+    
+
+    async run(client, interaction){
+
+const start = new Discord.MessageEmbed()
+.setAuthor("HELP", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+.setDescription(`Si encuentras un problema reportalo con el comando \`!reporte\`, estos son mis comandos.`)
+.setColor("e60ad4")
+.addField(`ㅤ`, "\n\n > <:ayuda:1045424545261162516> Prefix: **!**")
+.addField("**CATEGORIAS**:", `\`\`\`• Configuracion
+• Backups
+• Moderacion
+• Bienvenidas
+• Niveles
+• Traductor
+• Utilidad
+• RolePlay
+• Diversion
+• Nsfw \`\`\``)
+
+
+.addField(`ㅤ`, "\n\n > <:web:1045424526390992959> Visita mi [**Discord**]\
+(https://discord.gg/K6rB4pQ2jB) Oficial")
+.setImage("https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg")
+
+
+const row = new MessageActionRow()
+.addComponents(
+    new MessageSelectMenu()
+    .setCustomId('Select')
+    .setPlaceholder('Selecciona una categoria')
+    .addOptions([
+        {
+            label: 'Menu Principal',
+            description: '',
+            value: 'test1',
+            emoji: '🏡'
+        },
+        {
+            label: 'Configuracion',
+            description: '',
+            value: 'test2',
+            emoji: '⚙️'
+        },
+        {
+            label: 'Backups',
+            description: '',
+            value: 'test3',
+            emoji: '📁'
+        },
+        {
+            label: 'Moderacion',
+            description: '',
+            value: 'test4',
+            emoji: '🛡️'
+        },
+        {
+            label: 'Bienvenidas',
+            description: '',
+            value: 'test5',
+            emoji: '👋'
+        },
+        {
+            label: 'Niveles',
+            description: '',
+            value: 'test6',
+            emoji: '⬆️'
+        },
+        {
+            label: 'Traductor',
+            description: '',
+            value: 'test7',
+            emoji: '💬'
+        },
+        {
+            label: 'Utilidad',
+            description: '',
+            value: 'test8',
+            emoji: '🔎'
+        },
+        {
+            label: 'Roleplay',
+            description: '',
+            value: 'test9',
+            emoji: '🎭'
+        },
+        {
+            label: 'Divercion',
+            description: '',
+            value: 'test10',
+            emoji: '🎮'
+        },
+        {
+            label: 'Nsfw',
+            description: '',
+            value: 'test11',
+            emoji: '🔞'
+        },
+
+    ])
+)
+
+interaction.reply({ embeds: [start], components: [row] }).then(async(m) => {
+
+    const collector = interaction.channel.createMessageComponentCollector({ filter: i => i.user.id === interaction.member.id});
+    collector.on("collect", async(i) => {
+        if(i.values[0] === "test1"){
+            i.update({ embeds: [start]})
+        }
+        if(i.values[0] === "test2"){
+            i.update({ embeds: [t2embed]})
+        }
+        if(i.values[0] === "test3"){
+            i.update({ embeds: [t3embed]})
+        }
+        if(i.values[0] === "test4"){
+            i.update({ embeds: [t4embed]})
+        }
+        if(i.values[0] === "test5"){
+            i.update({ embeds: [t5embed]})
+        }
+        if(i.values[0] === "test6"){
+            i.update({ embeds: [t6embed]})
+        }
+        if(i.values[0] === "test7"){
+            i.update({ embeds: [t7embed]})
+        }
+        if(i.values[0] === "test8"){
+            i.update({ embeds: [t8embed]})
+        }
+        if(i.values[0] === "test9"){
+            i.update({ embeds: [t9embed]})
+        }
+        if(i.values[0] === "test10"){
+            i.update({ embeds: [t10embed]})
+        }
+        if(i.values[0] === "test11"){
+            i.update({ embeds: [t11embed]})
+
+       }
+    })
+    const t1embed = new Discord.MessageEmbed()
+    .setAuthor("Configuración", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription(`Para mas informacion sobre un comando usa \`!info (comando).\``)
+    .setColor("e60ad4")
+    .addField(`ㅤ`, "\n\n > <:ayuda:1045424545261162516> Prefix: **!**")
+    .addField("**Pagina Principal**:", `\`\`\`• Configuracion
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto \`\`\``)
+    
+    
+
+    const t2embed = new Discord.MessageEmbed()
+    .setAuthor("Configuración", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• setPrefix\n• setSuggest \`\`\``)
+    
+    
+
+    const t3embed = new Discord.MessageEmbed()
+    .setAuthor("Backups", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• backup create\n• backup load\n• backup info\n• backup delete \`\`\``)
+    
+    
+
+
+    const t4embed = new Discord.MessageEmbed()
+
+    .setAuthor("Moderación", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• kick\n• nuke\n• ban\n• warn\n• unwarn\n• warns\n• clear\n• slowmode\n• banlist\n• lock\n• unlock\n• snipe\`\`\``)
+    
+    
+    
+
+    const t5embed = new Discord.MessageEmbed()
+    .setAuthor("Bienvenidas", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• Configuracion
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto \`\`\``)
+    
+    
+
+
+    const t6embed = new Discord.MessageEmbed()
+    .setAuthor("Niveles", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• Configuracion
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto
+    • Pronto \`\`\``)
+    
+    
+
+
+    const t7embed = new Discord.MessageEmbed()
+    .setAuthor("Traductor", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• en (texto a ingles)\n• es (texto a español)\n• fr (texto a frances)\n• rs (texto a ruso)\n• tr (texto a Turco)\`\`\``)
+    
+    
+
+
+    const t8embed = new Discord.MessageEmbed()
+    .setAuthor("Utilidad", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• avatar\n• servericon\n• botinfo\n• serverinfo\n• userinfo\n• ping\n• rolinfo\n• jail\n• fecha\n• creditos\n\`\`\``)
+    
+    
+
+
+    const t9embed = new Discord.MessageEmbed()
+    .setAuthor("RolePlay", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• dance\n• feed\n• hug\n• kiss\n• sleep\n• kill\`\`\``)
+    
+    
+
+
+    const t10embed = new Discord.MessageEmbed()
+    .setAuthor("Diversion", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• hack\n• 8ball\n• gato\n• manco\n• pared\n• lucky\n• meme\n• bomb\n• howgay\n• horoscopo\n• dado\n• banana\`\`\``)
+    
+    
+
+
+    const t11embed = new Discord.MessageEmbed()
+    .setAuthor("Nsfw", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setDescription("Para mas informacion sobre un comando usa `!info (comando).`")
+    .setColor("e60ad4")
+    .addField("**Comandos**:", `\`\`\`• porn\n• anal\n• fourk\n• ass\n• gonewild\n• pussy\n• thigh\n• boobs\n• hass\n• hentai\n• hmidriff\n• hthigh\n• kitsune\n• lewd\n• wallpaper\`\`\``)
+    
+    
+
+
+})
+
+
+
+    
+  }
+
+}
+
+const { MessageActionRow, MessageSelectMenu} = require('discord.js')
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const { MessageEmbed } = require("discord.js")
+const { readdirSync } = require('fs');
+const Discord = require('discord.js');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("ayuda")
+        .setDescription("📙 Mira mis comandos")
+        .addStringOption((option) => {
+            return option
+                .setName("categoria")
+                .setDescription("Escoje una categoria")
+                .setChoices(
+                    { name: "🌸 → Configuracion", value: "Configuracion" },
+                    { name: "🟢 → Diversion", value: "Diversion" },
+                    { name: "🟣 → Musica", value: "Musica" },
+                    { name: "🔵 → Principal", value: "Principal" },
+                    { name: "🔴 → Bienvenidas", value: "Bienvenidas" },
+                    { name: "🟠 → Owner", value: "Owner" },
+                    { name: "🔘​ → Premium", value: "Premium" },
+                    { name: "⚫️ → Backups", value: "Backups" },
+                    { name: "⚪ → Traductor", value: "Traductor" },
+                    { name: "🟡 → Niveles", value: "Niveles" },
+                    { name: "🟡 → Nsfw", value: "Nsfw" },
+                    { name: "🟡 → Utilidad", value: "Utilidad" },
+                    { name: "🟡 → RolePlay", value: "Roleplay" },
+                    { name: "🟡 → Moderacion", value: "Moderacion" },
+
+                )
+                .setRequired(false)
+        }),
+    
+
+    async run(client, interaction, args){
+
+        const categoru = interaction.options.getString("categoria")
+
+                //TIME ON///////
+                let horas = Math.floor(client.uptime / 3600000) % 24
+                let minutos = Math.floor(client.uptime / 60000) % 60
+                let segundos = Math.floor(client.uptime / 1000) % 60
+                //definimos las categorias del bot leyendo la ruta ./commands
+                const categorias = readdirSync('./commands');
+                if (categoru) {
+                    const comando = client.commands.get(categoru.toLowerCase()) || client.commands.find(c => c.alias && c.alias.includes(categoru.toLowerCase()));
+                    const categoria = categorias.find(categoria => categoria.toLowerCase().endsWith(categoru.toLowerCase()));
+                    if (comando) {
+                        let embed = new Discord.MessageEmbed()
+                        .setAuthor({name: `Comando ${comando.name} `, iconURL: client.user.displayAvatarURL({dynamic: true})})
+                            .setColor("e60ad4")
+                        //condicionales
+                        if (comando.desc) embed.addField(` > Descripción:`, `\`\`\`${comando.desc}\`\`\``);
+                        if (comando.uso) embed.addField(` > Uso:`, `\`\`\`${comando.uso}\`\`\``);
+                        if (comando.alias && comando.alias.length >= 1) embed.addField(` > Alias:`, `\`\`\`${comando.alias}\`\`\``);
+                        if (comando.permisos) embed.addField(` > Permisos requeridos del usuario`, `\`\`\`${comando.permisos}\`\`\``);
+                        if (comando.permisos_bot) embed.addField(` > Permisos requeridos del bot:`, `\`\`\`${comando.permisos_bot}\`\`\``);
+                        if (comando.valoracion) embed.addField(` > Valoracion:`, `\`\`\`${comando.valoracion}\`\`\``);
+                        return interaction.reply({ embeds: [embed] })
+                    } else if (categoria) {
+                        const commands_de_categoria = readdirSync(`./commands/${categoria}`).filter(archivo => archivo.endsWith('.js'));
+                        return interaction.reply({
+                            embeds: [new Discord.MessageEmbed()
+                                .setAuthor({name: `${categoria.split(" ")[0]} ${categoria.split(" ")[1]} ${categoria.split(" ")[0]}`, iconURL: client.user.displayAvatarURL({dynamic: true})})
+                                .setDescription(`Para mas informacion sobre un comando usa \`!info (comando)\``)
+                                .setColor("e60ad4")
+                                .addField("**Comandos**:", commands_de_categoria.length >= 1 ? `>>> *${commands_de_categoria.map(comando => `\`${comando.replace(/.js/, "")}\``).join(" - ")}*` : `>>> *\`\`\`Comandos en implementación...\`\`\`*`)
+                                
+                            ]
+                        })
+                    } else {
+                        return interaction.reply({
+                            embeds: [new Discord.MessageEmbed()
+                                .setDescription(` > **Usa:**\`!Help\` para ver la lista de Commandos!`)
+                                .setAuthor({name: `Comando no Encontrado`, iconURL:"https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png"})
+                                .setColor("e60ad4")
+                          
+                            ]
+                          })
+                    }
+                } else {
+                    var paginaActual = 0;
+        
+                    //definimos el embed principal
+                    let ayuda_embed = new Discord.MessageEmbed()
+                    .setAuthor({name: "HELP", iconURL: client.user.displayAvatarURL({dynamic: true})})
+                    .setDescription(`Si encuentras un problema u error reportalo con el comando \`!reporte\`.`)
+                    .setColor("e60ad4")
+                    .addField("**CATEGORIAS**:", `\`\`\`• Moderacion
+• RolePlay
+• Diversion
+• Y mucho mas \`\`\``)
+                    .addField("**ESTADÍSTICAS**:", `\`\`\`‍💻 ${client.commands.size} comandos\n⌚ ${horas} Horas ${minutos} Mins ${segundos} Segs Encendido\n📶 ${client.ws.ping}ms Ping\n🔵 0ms DB-Ping\n👤 Creado por Botri#6523\`\`\``)
+                    .setImage("https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg")
+                    .setFooter({ text: `Página 1 / ${categorias.length+1}`, iconURL: `https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png` })
+                    let embeds_pages = [ayuda_embed];
+        
+                    //por cada categoria, creamos un embed y lo empujamos en embeds_pages
+                    categorias.map((categoria, index) => {
+                        const commands_de_categoria = readdirSync(`./commands/${categoria}`).filter(archivo => archivo.endsWith('.js'));
+        
+                        let embed = new Discord.MessageEmbed()
+                            .setAuthor({name: `${categoria.split(" ")[0]} ${categoria.split(" ")[1]} ${categoria.split(" ")[0]}`, iconURL: client.user.displayAvatarURL({dynamic: true})})
+                            .setDescription(`Para mas informacion sobre un comando usa \`!info (comando)\``)
+                            .setColor("e60ad4")
+                            .addField("**Comandos**:", commands_de_categoria.length >= 1 ? `>>> *${commands_de_categoria.map(comando => `\`${comando.replace(/.js/, "")}\``).join(" - ")}*` : `>>> *\`\`\`Comandos en implementación...\`\`\`*`)
+                            .setFooter({ text: `Página ${index+2} / ${categorias.length+1}`, iconURL: `https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png` })
+                        embeds_pages.push(embed)
+                    })
+        
+                    //definimos la selección de categoría
+                    const seleccion = new Discord.MessageActionRow().addComponents(new Discord.MessageSelectMenu()
+                        .setCustomId(`SelecciónMenuAyuda`)
+                        .setMaxValues(5)
+                        .setMinValues(1)
+                        .addOptions(categorias.map(categoria => {
+                            //definimos el objeto, que será una opción a elegir
+                            let objeto = {
+                                label: categoria.split(" ")[1].substring(0, 50),
+                                value: categoria,
+                                description: `Mira los commandos de ${categoria.split(" ")[1].substring(0, 50)}`,
+                                emoji: categoria.split(" ")[0],
+                            }
+                            //devolvemos el objeto creado y lo añadimos como una opción más
+                            return objeto;
+                        }))
+                    )
+        
+                    const botones = new Discord.MessageActionRow().addComponents([
+                        new Discord.MessageButton().setStyle('PRIMARY').setLabel("").setCustomId("Atrás").setEmoji("<:retroceder:1064736753489027073>"),
+                        new Discord.MessageButton().setStyle('PRIMARY').setLabel("Inicio").setCustomId("Inicio").setEmoji("🕌"),
+                        new Discord.MessageButton().setStyle('PRIMARY').setLabel("").setCustomId("Avanzar").setEmoji("<:avanzar:1064736755502301215>"),
+                        new Discord.MessageButton().setStyle(`LINK`).setLabel(`WebSite`).setURL("https://docs.clubatticus.ml/").setEmoji("<:ATTICUS:1065033501012930620>"),
+                    ])
+        
+                    let mensaje_ayuda = await interaction.channel.send({ embeds: [ayuda_embed], components: [seleccion, botones] });
+        
+                    const collector = mensaje_ayuda.createMessageComponentCollector({ filter: i => i.isButton() || i.isSelectMenu() && i.user.id == interaction.member.id, time: 180e3 });
+        
+                    collector.on("collect", async (interaction) => {
+                        if (interaction.isButton()) {
+                            if(interaction.user.id !== interaction.member.id) return interaction.reply({content: `❌ **No puedes hacer eso! Solo ${interaction.member}**`, ephemeral: true})
+                            switch (interaction.customId) {
+                                case "Atrás": {
+                                    //Resetemamos el tiempo del collector
+                                    collector.resetTimer();
+                                    //Si la pagina a retroceder no es igual a la primera pagina entonces retrocedemos
+                                    if (paginaActual !== 0) {
+                                        //Resetemamos el valor de pagina actual -1
+                                        paginaActual -= 1
+                                        //Editamos el embeds
+                                        await mensaje_ayuda.edit({ embeds: [embeds_pages[paginaActual]] }).catch(() => { });
+                                        await interaction?.deferUpdate();
+                                    } else {
+                                        //Reseteamos al cantidad de embeds - 1
+                                        paginaActual = embeds_pages.length - 1
+                                        //Editamos el embeds
+                                        await mensaje_ayuda.edit({ embeds: [embeds_pages[paginaActual]] }).catch(() => { });
+                                        await interaction?.deferUpdate();
+                                    }
+                                }
+                                    break;
+            
+                                case "Inicio": {
+                                    //Resetemamos el tiempo del collector
+                                    collector.resetTimer();
+                                    //Si la pagina a retroceder no es igual a la primera pagina entonces retrocedemos
+                                    paginaActual = 0;
+                                    await mensaje_ayuda.edit({ embeds: [embeds_pages[paginaActual]] }).catch(() => { });
+                                    await interaction?.deferUpdate();
+                                }
+                                    break;
+            
+                                case "Avanzar": {
+                                    //Resetemamos el tiempo del collector
+                                    collector.resetTimer();
+                                    //Si la pagina a avanzar no es la ultima, entonces avanzamos una página
+                                    if (paginaActual < embeds_pages.length - 1) {
+                                        //Aumentamos el valor de pagina actual +1
+                                        paginaActual++
+                                        //Editamos el embeds
+                                        await mensaje_ayuda.edit({ embeds: [embeds_pages[paginaActual]] }).catch(() => { });
+                                        await interaction?.deferUpdate();
+                                    //En caso de que sea la ultima, volvemos a la primera
+                                    } else {
+                                        //Reseteamos al cantidad de embeds - 1
+                                        paginaActual = 0
+                                        //Editamos el embeds
+                                        await mensaje_ayuda.edit({ embeds: [embeds_pages[paginaActual]] }).catch(() => { });
+                                        await interaction?.deferUpdate();
+                                    }
+                                }
+                                    break;
+            
+                                default:
+                                    break;
+                            }
+                        } else {
+                            let embeds = [];
+                            for (const seleccionado of interaction.values) {
+                                //definimos los commands leyendo la ruta del valor seleccionado del menú
+                                const commands_de_categoria = readdirSync(`./commands/${seleccionado}`).filter(archivo => archivo.endsWith('.js'));
+        
+                                let embed = new Discord.MessageEmbed()
+                                .setAuthor({name: `${seleccionado.split(" ")[0]} ${seleccionado.split(" ")[1]} ${seleccionado.split(" ")[0]}`, iconURL: client.user.displayAvatarURL({dynamic: true})})
+                                .setDescription(`Para mas informacion sobre un comando usa \`!info (comando)\``)
+                                .setColor("e60ad4")
+                                .addField("**Comandos**:", commands_de_categoria.length >= 1 ? `>>> *${commands_de_categoria.map(comando => `\`${comando.replace(/.js/, "")}\``).join(" - ")}*` : `>>> *\`\`\`Comandos en implementación...\`\`\`*`)
+                                
+                                embeds.push(embed)
+                            }
+                            interaction.reply({ embeds, ephemeral: true })
+                        }
+        
+                    });
+        
+                    collector.on("end", () => {
+                        mensaje_ayuda.edit({ content: `Tu tiempo ha expirado! Vuelve a escribir \`${prefix}help\` para verlo de nuevo!`, components: [] }).catch(() => { });
+                    })
+                }
+            }
+        }
+        

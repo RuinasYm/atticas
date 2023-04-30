@@ -1,0 +1,83 @@
+const { MessageEmbed } = require("discord.js");
+const db = require("quick.db");
+
+module.exports = {
+  name: "pay",
+  alias: ['payment'],
+  async execute (bot, message, args)  {
+try {
+  let user2 = message.author
+    if (!args[0]) return message.channel.send({
+      embeds: [new MessageEmbed()
+          .setDescription("**<:fail:1083542064924479549> |  Ingresa un usuario para Transferir! | <:fail:1083542064924479549>**")
+          .setColor("e60ad4")
+      ]
+  })
+    let user =
+      message.mentions.members.first() ||
+      message.guild.members.cache.get(args[0]) ||
+      message.guild.members.cache.find(
+        r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+      ) ||
+      message.guild.members.cache.find(
+        r => r.displayName.toLowerCase() === args[0].toLocaleLowerCase()
+      );
+    if (!user) return message.channel.send({
+      embeds: [new MessageEmbed()
+          .setDescription("**<:fail:1083542064924479549> |  Ingresa un usuario para Transferir! | <:fail:1083542064924479549>**")
+          .setColor("e60ad4")
+      ]
+  })
+
+    let member = db.fetch(`money_${user2.id}`);
+
+    let embed1 = new MessageEmbed()
+    .setDescription("**<:fail:1083542064924479549> |  Ingresa un usuario para Transferir! | <:fail:1083542064924479549>**")
+    .setColor("e60ad4")
+
+    if (!args[0]) {
+      return message.channel.send({embed: [embed1]});
+    }
+    let embed2 = new MessageEmbed()
+    .setDescription("**<:fail:1083542064924479549> |  No te puedes transferir a ti Mismo! | <:fail:1083542064924479549>**")
+    .setColor("e60ad4")
+
+    if (user.user.id === message.author.id) {
+      return message.channel.send({embeds: [embed2]});
+    }
+
+    let embed3 = new MessageEmbed()
+    .setDescription("**<:fail:1083542064924479549> |  Ingresa una cantidad para Transferir! | <:fail:1083542064924479549>**")
+    .setColor("e60ad4")
+
+    if (!args[1]) {
+      return message.channel.send({embeds: [embed3]});
+    }
+    let embed4 = new MessageEmbed()
+      .setDescription("**<:fail:1083542064924479549> |  Ingresa una cantidad para transferir con Numeros! | <:fail:1083542064924479549>**")
+      .setColor("e60ad4")
+
+    if (isNaN(args[1])) {
+      return message.channel.send({embeds: [embed4]});
+    }
+    let embed5 = new MessageEmbed()
+    .setDescription("**<:fail:1083542064924479549> |  No tienes suficiente dinero para Transferir! | <:fail:1083542064924479549>**")
+    .setColor("e60ad4")
+
+    if (member < args[1]) {
+      return message.channel.send({embeds: [embed5]});
+    }
+
+    let embed6 = new MessageEmbed()
+        .setAuthor(`Economia`, "https://cdn.discordapp.com/icons/996282321277825104/f3deb65631cd833da7879f788f95ab17.webp")
+        .setColor("e60ad4")
+        .setDescription(`**${message.author} a Transferido ah ${user} **\n > **Cantidad:** ${args[1]}$`)
+
+    message.channel.send({embeds: [embed6]});
+    db.add(`money_${user.id}`, args[1]);
+    db.subtract(`money_${user2.id}`, args[1]);
+    } catch {
+        
+    }
+  }
+};

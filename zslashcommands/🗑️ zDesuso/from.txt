@@ -1,0 +1,18 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "testfrom",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setColor("e60ad4")
+    .setImage('https://cdn.discordapp.com/attachments/992918273148596234/993212848647966750/A0C892E2-EFEF-4FBF-A4EE-5A5530E411EB.gif')
+    .setDescription(`**✗ <:veri:998302154525769818> ELIJE TU UBICACIÓN ✗**\n\n『 :flag_us: 』<@&1058157801274347520>\n\n『 :flag_pa: 』<@&1058157806613713016>\n\n『 :flag_br: 』<@&1058157827186774037>\n\n『 :flag_es: 』<@&1058157834841366528>\n\n『 :flag_kr: 』<@&1058157846069522492>\n\n『 :flag_au: 』<@&1058157849445924965>`)
+    .setThumbnail('https://cdn.discordapp.com/avatars/1044756126350196796/d20d172af361678d811812f14154b004.png?size=1024')
+    message.channel.send({embeds: [embed] })
+  }
+}
+

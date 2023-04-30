@@ -1,0 +1,48 @@
+//mejorar embed
+const { MessageEmbed, Permissions } = require("discord.js")
+const db = require("megadb")
+const DB = new db.crearDB("Warns")
+const discord = require('discord.js')
+
+module.exports = {
+    name: "warns",
+    alias: [],
+    desc: "Sirve para ver la lista de warns de un usuario",
+    uso: "!warnlist (usuario)",
+    permisos: ["MANAGE_MESSAGES"],
+    permisos_bot: ["ADMINISTRATOR"], 
+    valoracion: "⭐⭐⭐⭐⭐",
+
+    async execute (client, message, args) {
+     
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply({embeds: [new Discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No tienes los permisos suficientes: \`MANAGE_MESSAGES\` | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")
+          ]})
+          if(!message.guild.me.permissions.has("MANAGE_MESSAGES"))return message.reply({embeds: [new Discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No tengo los permisos: \`MANAGE_MESSAGES\` | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")]})
+        const user = message.mentions.members.first() || message.author;
+
+        const warns = await DB.obtener(user.id)
+
+        const razon = args.join(" ").slice(22)
+
+        if(!DB.tiene(user.id, 0)){
+            return message.reply({embeds: [new discord.MessageEmbed()
+                .setDescription("**<:fail:1083542064924479549> |  El usuario mencionado no tiene Advertencias! | <:fail:1083542064924479549>**")
+             .setColor("e60ad4")
+            ]})
+        } else {
+            const embed = new MessageEmbed()
+            .setAuthor({name: "Warn List", iconURL: client.user.displayAvatarURL({dynamic: true})})
+            .setDescription(`> **Usuario:** ${user}\n> **Advertencias:** \`${warns}\``)
+            .setColor("e60ad4")
+            
+
+            message.reply({embeds: [embed], allowedMentions: { repliedUser: false }})
+        }
+
+
+    }
+}

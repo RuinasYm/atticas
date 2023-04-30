@@ -1,0 +1,33 @@
+/*
+const discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton } = require('discord.js');
+
+module.exports = {
+  name: 't2',
+  alias: [''],
+  desc: 'Sirve para',
+  uso: '!',
+  permisos: ['SEND_MESSAGES'],
+  permisos_bot: ['ADMINISTRATOR'],
+  valoracion: '⭐⭐⭐⭐⭐',
+  async execute(client, message, args, interaction) {
+    const embed = new discord.MessageEmbed()
+    .setImage("https://cdn.discordapp.com/attachments/995101126179442798/1036758927825711254/Gif_HD_1-1-1-1-1-1-1-1-2-2-1.gif")
+
+    const embed1 = new discord.MessageEmbed()
+    .setImage("https://cdn.discordapp.com/attachments/1052343306538975282/1079817660637925396/standard.gif")
+
+    const embed2 = new discord.MessageEmbed()
+    .setImage("https://cdn.discordapp.com/attachments/1038123365904420976/1071538133809774652/aniyuki-anime-smile-9.gif")
+
+    const embed3 = new discord.MessageEmbed()
+    .setImage("https://cdn.discordapp.com/attachments/995101126179442798/1036758927825711254/Gif_HD_1-1-1-1-1-1-1-1-2-2-1.gif")
+
+    await message.channel.send({ embeds: [embed, embed1, embed2, embed3], components: [new MessageActionRow().addComponents([
+        new MessageButton().setStyle('LINK').setEmoji("<:coffe:1085588495172632638>").setURL("https://www.patreon.com/clubatticus").setLabel("Patreon"),
+        new MessageButton().setStyle('LINK').setEmoji("<:3891chibihutaosurprised:1076925127255670824>").setURL("https://www.paypal.com/donate/?hosted_button_id=QEHBSYJ2AEU44").setLabel("Paypal"),
+        new MessageButton().setStyle('LINK').setEmoji("<:emoji_46:1075269987297660959>").setURL("https://docs.clubatticus.ml/").setLabel("WebSite")])] });
+
+  }
+}
+*/

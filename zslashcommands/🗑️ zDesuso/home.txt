@@ -1,0 +1,17 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "home",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setColor("e60ad4")
+    .setDescription(`**✗ AUTO - ROLES ✗**\n\n<:megajs:999864661937750177>| Personaliza tu perfil con distintos Roles.\n\n**¿Cómo?**\n\nSencillo para elegir un Rol reacciona a el emoji correspondiente de tu Rol deseado`)
+    .setThumbnail('https://cdn.discordapp.com/icons/1050655552662941766/e6ad1af22a3ea67b634acd8aa41c14b7.png?size=1024')
+    message.channel.send({embeds: [embed] })
+  }
+}
+

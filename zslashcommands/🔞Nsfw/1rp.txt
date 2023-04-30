@@ -1,0 +1,75 @@
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const Discord = require("discord.js")
+const NSFW = require("discord-nsfw");
+const nsfw = new NSFW();
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("nsfw_rp")
+        .setDescription("🔞 Envia contenido Nsfw")
+        .addStringOption((option) => {
+            return option
+                .setName("contenido")
+                .setDescription("🔞 → Elije un contenido a Enviar")
+                .setChoices(
+                    { name: "🔞 → 69", value: "1" },
+                    { name: "🔞 → Brincos", value: "2" },
+                    { name: "🔞 → Cuatro", value: "3" },
+                    { name: "🔞 → Cucharita", value: "4" },
+                    { name: "🔞 → Oral", value: "5" },
+                    { name: "🔞 → Paja_Rusa", value: "6" },
+                    { name: "🔞 → Jalon_de_pelo", value: "7" },
+                    { name: "🔞 → Masaje", value: "8" },
+                    { name: "🔞 → Pared", value: "9" },
+                    { name: "🔞 → Dildo", value: "10" },
+                    { name: "🔞 → Pillow", value: "11" },
+
+
+                )
+                .setRequired(true)
+        })
+        .addStringOption(option => option.setName('usuario').setDescription('ingresa un usuario').setRequired(true)),
+
+
+    async run(client, interaction){
+
+        let contenidos = interaction.options.getString("contenido")
+        let e = new Discord.MessageEmbed()
+    if (!interaction.channel.nsfw) return interaction.reply({ embeds: [e.setDescription(`**<:fail:1083542064924479549> |  Este comando solo funciona en canales Nsfw! | <:fail:1083542064924479549>**`).setColor("e60ad4")], ephemeral: true })
+   
+    if (contenidos) {
+        if (contenidos === "1") {  } else { }
+        if (contenidos === "1") {  } else { }
+        if (contenidos === "2") {  } else { }
+        if (contenidos === "3") {  } else { }
+        if (contenidos === "4") {  } else { }
+        if (contenidos === "5") {  } else { }
+        if (contenidos === "6") {  } else { }
+        if (contenidos === "7") {  } else { }
+        if (contenidos === "8") {  } else { }
+        if (contenidos === "9") {  } else { }
+        if (contenidos === "10") {  } else { }
+        if (contenidos === "11") {  } else { }
+        if (contenidos === "12") {  } else { }
+        if (contenidos === "13") {  } else { }
+        if (contenidos === "14") {  } else { }
+        if (contenidos === "15") {  } else { }
+        if (contenidos === "16") {  } else { }
+        if (contenidos === "17") {  } else { }
+        if (contenidos === "18") {  } else { }
+        if (contenidos === "19") {  } else { }
+        if (contenidos === "20") {  } else { }
+        if (contenidos === "21") {  } else { }
+        if (contenidos === "22") {  } else { }
+        if (contenidos === "23") {  } else { }
+        if (contenidos === "24") {  } else { }
+        if (contenidos === "25") {  } else { }
+
+
+
+               } else { }
+    
+
+}
+
+}

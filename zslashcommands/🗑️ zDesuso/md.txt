@@ -1,0 +1,18 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "testmd",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setColor("e60ad4")
+    .setImage('https://cdn.discordapp.com/attachments/992918273148596234/993212848647966750/A0C892E2-EFEF-4FBF-A4EE-5A5530E411EB.gif')
+    .setDescription(`**✗ <:veri:998302154525769818> ELIJE TU MD ✗**\n\n『 <:coolboy:1016176426514399304> 』<@&1017971771699376279>\n\n『 <:carita:1016176432583544843> 』<@&1017972736171184270>\n\n『 <:boy4:1016175628522893345> 』<@&1017973179634954330>\n\n『 <:girl1:1016175590774161408> 』<@&1017972461146492929>`)
+    .setThumbnail('https://cdn.discordapp.com/avatars/1044756126350196796/d20d172af361678d811812f14154b004.png?size=1024')
+    message.channel.send({embeds: [embed] })
+  }
+}
+

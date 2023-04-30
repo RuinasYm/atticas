@@ -1,0 +1,73 @@
+const ms = require("parse-ms");
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const { MessageEmbed } = require("discord.js")
+const Discord = require("discord.js")
+const db = require("quick.db");
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("rob")
+        .setDescription("💸 Roba a un usuario")
+        .addUserOption(option => option.setName('usuario').setDescription('Roba dinero a un usuario').setRequired(true)),
+
+    async run(client, interaction, args){
+
+      let user = interaction.options.getUser('usuario')
+
+      let user2 = interaction.member
+
+    let embed2 = new MessageEmbed()
+    .setDescription("**<:fail:1083542064924479549> |  No te puedes robar a ti Mismo! | <:fail:1083542064924479549>**")
+    .setColor("e60ad4")
+
+    if (user.member.id === interaction.member.id) {
+      return interaction.reply({embeds: [embed2]})
+    }
+
+    let targetuser = await db.fetch(`money_${user.id}`)
+    let author = await db.fetch(`rob_${user.id}`)
+    let author2 = await db.fetch(`money_${user2.id}`)
+
+    let timeout = 3600000;
+
+    if (author !== null && timeout - (Date.now() - author) > 0) {
+      let time = ms(timeout - (Date.now() - author));
+
+      let timeEmbed = new MessageEmbed()
+      .setDescription(`**<:fail:1083542064924479549> |  Oyee ya robaste, casi te atrapan, Descansa!, Podras volver a robar en ${time.minutes}m ${time.seconds}s | <:fail:1083542064924479549>**`)
+      .setColor("e60ad4")
+      interaction.reply({embeds: [timeEmbed]})
+    } else {
+
+      let moneyEmbed = new MessageEmbed()
+      .setDescription("**<:fail:1083542064924479549> |  Ustedes ricos deben salvar la Cara! | <:fail:1083542064924479549>**")
+      .setColor("e60ad4")
+
+      if (author2 > 1000) {
+        return interaction.reply({embeds: [moneyEmbed]})
+
+      }
+      let moneyEmbed2 = new MessageEmbed()
+      .setDescription(`**<:fail:1083542064924479549> |  ${user} No tiene dinero fuera del banco! | <:fail:1083542064924479549>**`)
+      .setColor("e60ad4")
+
+      let random = Math.floor((Math.random() * 100)) + 1;
+
+      if (targetuser < random) {
+        return interaction.reply({embeds: [moneyEmbed2]})
+      } else {
+
+        let embed = new MessageEmbed()
+        .setAuthor(`Economia`, "https://cdn.discordapp.com/icons/996282321277825104/f3deb65631cd833da7879f788f95ab17.webp")
+        .setColor("e60ad4")
+        .setDescription(`**${message.author} a robado ah ${user} **\n > **Cantidad:** ${random}$`)
+        interaction.reply({embeds: [embed]})
+
+        db.subtract(`money_${user.id}`, random)
+        db.add(`money_${user2.id}`, random)
+        db.set(`rob_${user.id}`, Date.now())
+
+      }
+    };
+  }
+} 

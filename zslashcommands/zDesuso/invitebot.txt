@@ -1,0 +1,23 @@
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const { MessageEmbed } = require("discord.js")
+const Discord = require("discord.js")
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("invite")
+        .setDescription("🤖 Invitame a tu Servidor"),
+    
+
+    async run(client, interaction){
+        interaction.reply({
+            embeds: [new MessageEmbed()
+                .setDescription(`\n **[CLICK PARA INVITARME](https://discord.com/api/oauth2/authorize?client_id=1044756126350196796&permissions=8&scope=bot)**`)
+                
+                .setAuthor("Invite", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+                
+                .setColor("e60ad4")
+                .setImage("https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg")
+            ]
+          })
+          }
+          }

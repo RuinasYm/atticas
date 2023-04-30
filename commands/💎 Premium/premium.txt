@@ -1,0 +1,35 @@
+const keySchema = require(`${process.cwd()}/modelos/clave.js`)
+const ecoSchema = require(`${process.cwd()}/modelos/economia.js`)
+const Discord = require('discord.js')
+module.exports = {
+    name: "claim",
+    aliases: ["reclamar", "claim-key"], 
+    desc: "Sirve para reclamar una Clave Premium",
+    async execute (client, message, args, prefix) {
+        const user = message.guild.members.cache.get(args[0]) || message.member;
+        const clave = await keySchema.findOne({clave: args[0]});
+        if(clave) {
+            if(clave.activado) {
+                return message.reply(`<:disable:1069385154755309601> **${message.author.username}** esta clave ya ah sido utilizada <:coffe:1085588495172632638>.`);
+            } else {
+                //cambiamos el estado de la clave a usada / activado
+                clave.activado = true;
+                clave.save();
+
+                //activamos el premium en el servidor
+                await ecoSchema.findOneAndUpdate({userID: message.author.id}, {
+                    premium: Math.round(Date.now() + Number(clave.duracion))
+                });
+                return message.reply({ embeds: [new Discord.MessageEmbed()
+                    .setAuthor({name: `Premium Agregado`, iconURL: user.displayAvatarURL({dynamic: true})})
+                    .setDescription(`<a:arrow:1075495100454555659> **Usuario:** ${message.author.username}\n<a:time:1075236156029030420>**Tiempo:** <t:${Math.round((Date.now() + Number(clave.duracion)) / 1000)}:R>`)
+                    .setColor("e60ad4")
+                ]})
+                
+            }
+        } else {
+            return message.reply(`<:disable:1069385154755309601> **${message.author.username}** agrega una clave válida <:coffe:1085588495172632638>.`)
+        }
+    }
+}
+

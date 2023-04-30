@@ -1,0 +1,13 @@
+const Discord = require ('discord.js')
+module.exports = async (client, member, message,) => {
+
+    const embed = new Discord.MessageEmbed()
+    .setAuthor({name: "GoodBye", iconURL: client.user.displayAvatarURL({dynamic: true})})
+    .setColor("e60ad4")
+    .setDescription(`**₊˚✿¡¡ Adios de ✦ CLUB ATTICUS ✦ ${member.user.tag} !!✿˚₊**\n > ╭・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╮\n > ๑ ₊˚ ⿻ ୨ **Visita** ✦ ໒☄️꒱ ｡˚ ୧ᵎᵎ ๑ ꒷‧ ╴ ╴ ╴\n > ₊꒷ꕤ໒🍣꒱╰╮ <#996295481720320131>\n > ₊꒷ꕤ໒🍣꒱╭╯ <#996287502266663023>\n > ₊꒷ꕤ໒🍣꒱╭╯ <#996308137076330607>\n > ₊꒷ꕤ໒🍣꒱╰╮ <#996297524245704815>\n > ╰・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╯\n\n > ╭・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╮\n > ๑ ₊˚ ⿻ ୨ **Poseemos** ✦ ໒☄️꒱ ｡˚ ୧ᵎᵎ ๑ ꒷‧ ╴ ╴\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Alianzas & Affys୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨Decoración୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Organización୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨Entretenimiento୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒🌴꒱╰╮୨Porno & Hentai୧ᵎᵎ ꒷₊\n > ₊꒷ꕤ ໒ 🍁꒱╭╯୨+200 Canales Nsfw୧ᵎᵎ ꒷₊\n > ╰・—✿—・—୨ ⊰₊ ˚🌸 ˚ ₊⊱ ୧ —・—✿—・╯`) 
+    .setImage('https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg')
+    .setFooter({text: `Gracias por preferirnos Usuario: #${member.guild.memberCount}`, iconURL: ""})
+    
+    client.channels.cache.get("1067485998403031140").send({embeds: [embed] })
+    
+} 

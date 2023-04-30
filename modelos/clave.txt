@@ -1,0 +1,11 @@
+const { Schema, model } = require('mongoose')
+
+const keySchema = new Schema({
+    clave: String,
+    duracion: String,
+    activado: {type: Boolean, default: false}
+})
+
+
+module.exports = model("Claves_Premium", keySchema);
+

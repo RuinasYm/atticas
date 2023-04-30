@@ -1,0 +1,26 @@
+/* 
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+const day= require("dayjs")
+
+module.exports = {
+  name: "serverinfo",//Nombre del comando
+  alias: ["sinfo"],//Alias del comando (Por si quieres activar el comando de 2 maneras) Si no quieres alias simplemente quitale las comillas ""
+async execute (client, message, args) {
+
+const owner = message.guild.fetchOwner()
+const createsv = day(message.guild.createdAt).format("DD/MM/YY")
+
+const info = new Discord.MessageEmbed()
+.setAuthor(`Informacion del Servidor`, "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+.setColor("e60ad4")
+
+
+.addField("ㅤ", `\n > **Nombre:** \`${message.guild.name}\`\n > **ID:** \`${message.guild.id}\`\n > **Owner:** ${await message.guild.fetchOwner()}\n > **Miembros:** \`${message.guild.memberCount}\`\n > **Roles:** \`${message.guild.roles.cache.size}\`\n > **Canales:** \`${message.guild.channels.cache.size}\`\n > **Boosts:** \`${message.guild.premiumSubscriptionCount.toString()}\`\n > **Emojis:** \`${message.guild.emojis.cache.size}\`\n > **Creacion:** \`${createsv}\`\n > **Invitacion:** [**Click Aqui**](https://discord.gg/qj2xmdZCS5)`)
+message.channel.send({ embeds: [info] })
+
+ 
+  }
+
+}
+*/

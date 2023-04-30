@@ -1,0 +1,17 @@
+const Discord = require('discord.js');
+const { MessageActionRow, MessageSelectMenu, MessageEmbed, MessageButton} = require('discord.js')
+
+module.exports = {
+  name: "a",
+  alias: [],
+
+  async execute (client, message, args) {
+
+    const embed = new Discord.MessageEmbed()
+    .setAuthor("Boost", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+    .setColor("e60ad4")
+    .setDescription(` > **Beneficios por Mejorar el Servidor:**\n > Si estás pensando en mejorar nuestro servidor o si ya lo hiciste, aquí te dejamos los beneficios que obtienes por cada mejora realizada.\n\n > <a:a_:999878172847919195>**Beneficios 1 Mejora:**\n\n > <a:nitro:1018247093384658954> Poder enviar imagenes & enlaces al <#996297524245704815>.\n > <a:nitro:1018247093384658954> Rol exclusivo de <@&1061048427376562278> con personalizacion de (nombre, color, icono).\n > <a:nitro:1018247093384658954> Acceso al canal de <#1063240020187693066> exclusivo para los boosters.\n > <a:nitro:1018247093384658954> Acceso al canal de charla exclusivo para los boosters.\n > <a:nitro:1018247093384658954> Acceso al canal <#1046572272040808448> para poder escuchar musica sin interrupciones.\n > <a:nitro:1018247093384658954> Multiplicador de XP x2 para que subas nivel mas rapido.\n > <a:nitro:1018247093384658954> Poder añadir 2 emojis u pegantinas al servidor.\n > <a:nitro:1018247093384658954> Acceso a comandos premium de <@1044756126350196796>.\n > <a:nitro:1018247093384658954> Rol exclusivo de <@&1064265738417876992> con acceso a los canales vip del servidor.\n > <a:nitro:1018247093384658954> Se te aumentara la prioridad en eventos, sorteos, etc.\n\n > <a:a_:999878172847919195>**Beneficios 2 Mejoras:**\n\n > <a:nitro:1018247093384658954> Todo lo anterior <:924377963644993578:1063639008216879194>.\n > <a:nitro:1018247093384658954> Rol exclusivo <@&1046575289595080725>.\n > <a:nitro:1018247093384658954> Canal Exclusivo con todos los permisos.\n > <a:nitro:1018247093384658954> Eliminación total de tus warns.\n > <a:nitro:1018247093384658954> Multiplicador de XP aumentado a x3.\n > <a:nitro:1018247093384658954> Obtendras 100k de dinero en economia semanalmente.\n > <a:nitro:1018247093384658954> Tendras prioridad de palabra en los canales de voz.\n > <a:nitro:1018247093384658954> Podras usar comandos en <#996297524245704815>.\n > <a:nitro:1018247093384658954> Acceso a novedades anticipadas del servidor.`)
+    .setImage('https://cdn.discordapp.com/attachments/1045427598009839626/1065746146368180365/neko-koshki-devushka.jpg')
+    message.channel.send({embeds: [embed] })
+  }
+}

@@ -1,0 +1,39 @@
+const Discord = require("discord.js")
+const db = require("quick.db")
+
+module.exports = {
+    name: "colores",
+    alias: ["cambiarcolor"],
+    desc: "Sirve para cambiar el color de tu nombre",
+    uso: "!colores (color)",
+    permisos: ["SEND_MESSAGES"],
+    permisos_bot: ["ADMINISTRATOR"], 
+    valoracion: "⭐⭐⭐⭐⭐",
+
+    async execute(client, message, args)  {
+
+        const nopremium = db.get(`premium_${message.author.id}`);
+
+        if (nopremium !== true) {
+
+            message.reply({
+                embeds: [new Discord.MessageEmbed()
+             .setAuthor("Premium", "https://cdn.discordapp.com/attachments/1052343306538975282/1082126900333396079/b83824611e0c9ea5e962dfc1544b1a0e.png")
+            .setColor("e60ad4")
+            
+            .setDescription(` > **Comando Premium!** \n\n > Con este comando podras perzonalizar los colores de tu Rol\n\n > **Boostea este servidor para obtener acceso a los comandos Premium!**`)
+                ]
+            })
+
+        } else {
+
+            message.reply(`Color cambiado Correctamente **${message.author}**`).then(m =>{
+                m.react("<:coolgirl:1016176429693677618>")
+            }) 
+
+        }
+
+       
+        
+    }
+}

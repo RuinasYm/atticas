@@ -1,0 +1,80 @@
+//mejorar embed
+const { MessageEmbed, Permissions } = require("discord.js")
+const discord = require('discord.js')
+const modSchema = require('../../modelos/moderacion')
+
+module.exports = {
+    name: "warn",
+    alias: [],
+    desc: "Sirve para agregar un warn a un usuario",
+    uso: "!warn (usuario)",
+    permisos: ["MANAGE_MESSAGES"],
+    permisos_bot: ["ADMINISTRATOR"], 
+    valoracion: "⭐⭐⭐⭐⭐",
+
+    async execute (client, message, args) {
+        const user = message.mentions.members.first()
+        let data = await modSchema.findOne({ guildID: message.guild.id });
+        if(!data) {
+          // Si no se encuentra, creamos una nueva configuración
+          let server = new modSchema({
+            warns: 0,
+            guildID: message.guild.id,
+            userwarn: `${user.id}`
+          });
+          await server.save();
+        
+          data = await modSchema.findOne({ guildID: message.guild.id });
+        }
+        const moderador = message.author;
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No tienes los permisos suficientes: \`MANAGE_MESSAGES\` | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")
+          ]})
+          if(!message.guild.me.permissions.has("MANAGE_MESSAGES"))return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No tengo los permisos: \`MANAGE_MESSAGES\` | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")]})
+        
+        if(!user) return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  Tienes que mencionar a un usuario Valido! | <:fail:1083542064924479549>**")
+         .setColor("e60ad4")
+        ]})
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+        if (!member) {
+         return message.reply({embeds: [new discord.MessageEmbed()
+         .setDescription("**<:fail:1083542064924479549> |  Tienes que mencionar a un usuario Valido! | <:fail:1083542064924479549>**")
+         .setColor("e60ad4")
+        ]})
+}
+
+
+        if(message.guild.me.roles.highest.position <= member.roles.highest.position)
+        return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No puedes advertir a alguien con tu mismo rol o Superior! | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")]})
+
+        if(member === message.member)
+        return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  No te puedes advertir a ti Mismo! | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")]})
+
+        const razon = args.join(" ").slice(22)
+        if(!razon) return message.reply({embeds: [new discord.MessageEmbed()
+            .setDescription("**<:fail:1083542064924479549> |  Tienes que especificar un Razón! | <:fail:1083542064924479549>**")
+            .setColor("e60ad4")]})
+
+            await modSchema.findOneAndUpdate({guildID: message.guild.id}, {
+                warns: data.warns +1,
+                userwarn: `${user.id}`
+            })
+
+        const embed = new MessageEmbed()
+        .setDescription(`> **Moderador:** ${moderador}\n> **ID:** \`${moderador.id}\`\n> \n> **Usuario:** ${user}\n> **ID:** \`${user.id}\`\n> \n > **Razón:**\n> \`\`\`${razon}\`\`\``)
+        .setAuthor({name: "Usuario Advertido", iconURL: message.guild.iconURL({dynamic: true}) || client.user.displayAvatarURL({ dynamic: true })})
+        .setThumbnail(message.guild.iconURL({dynamic: true}) || client.user.displayAvatarURL({ dynamic: true }))
+        .setColor("e60ad4")
+            
+
+            message.reply({embeds: [embed], allowedMentions: { repliedUser: false }})
+    }
+}
